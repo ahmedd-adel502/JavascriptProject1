@@ -15,7 +15,7 @@ function addWebsite(){
     if(validate(nameRegex,nameInput) && validate(websiteRegex,websiteInput)){
         var website ={
             name:nameInput.value,
-            url:websiteInput.value,
+            url:completeURL(websiteInput.value),
         }
         websiteList.push(website)
         localStorage.setItem("websites",JSON.stringify(websiteList))
@@ -42,7 +42,7 @@ function displayContent(index){
         <tr>
             <td id="indexNumber">${index+1}</td>
             <td id="siteName">${websiteList[index].name}</td>
-            <td id="visitSite"><a href="${websiteList[index].url}" target="_blank" class="visit btn btn-success px-2"><i class="fa fa-eye"></i> Visit</a></td>
+            <td><a   href="${websiteList[index].url}" target="_blank" class="visit btn btn-success px-2"><i class="fa fa-eye"></i> Visit</a></td>
             <td id="deleteSite"><button id="deleteBtn"  class="delete btn btn-danger px-2" onclick="deleteWebsite(${index})"><i class="fa fa-trash-can"></i> Delete</button></td>
         </tr>
     `
@@ -94,6 +94,14 @@ function searchBookmark(){
 searchInput.addEventListener("input",function(){
     searchBookmark()
 })
+function completeURL(url) {
+    if (url.startsWith("http://") || url.startsWith("https://")) {
+        return url;
+    } else {
+        return "https://" + url;
+    }
+}
+
 //*Regex
 var nameRegex = /^[A-Za-z]{3,}$/;
 var websiteRegex = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]{3,}\.(com|net|org|dev)(\/\S*)?$/;
