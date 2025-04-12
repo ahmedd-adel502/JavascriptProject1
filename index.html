@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Marker</title>
+    <link rel="stylesheet" href="css/all.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="icon" href="images/favicon.png"/>
+</head>
+<body>
+  <main>
+    <div class="container py-5">
+      <h1 class="pacifico-regular text-center">Bookmarker</h1>
+      <p class="border-bottom border-3  mt-5"></p>
+      <h2 class="text-center mt-5 mb-4"><i class="fa fa-bookmark"></i> Bookmark your favorite sites <i class="fa fa-bookmark"></i></h2>
+      <section class="form-section">
+        <form>
+          <label class="mb-2" for="bookmarkName"><i class="fa fa-book-bookmark"></i> Site Name</label>
+          <input type="text" class="form-control  mb-3" id="bookmarkName" placeholder="Bookmark Name">
+          <label class="mb-2" for="websiteURL"><i class="fa fa-link"></i> Site URL</label>
+          <input type="url" class="form-control mb-3" id="websiteURL" placeholder="website URL">
+          <input type="search" class="form-control w-75 mx-auto mb-3" id="searchInput" placeholder="Search Saved Bookmarks">
+          <button type="button" id="submitBtn" class="btn btn-danger d-block px-5 mt-4 mx-auto">Submit</button>
+        </form>
+        <p class="border-bottom border-3  mt-5"></p>
+        <table class="mt-4 text-center bg-white text-black">
+          <thead class="border-bottom border-primary">
+            <tr>
+            <th class="fw-semibold">Index</th>
+            <th class="fw-semibold">Website Name</th>
+            <th class="fw-semibold">Visit</th>
+            <th class="fw-semibold">Delete</th>
+          </tr>
+          </thead>
+          <tbody class="d-none" id="contentContainer">
+            
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
