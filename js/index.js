@@ -42,7 +42,7 @@ function displayContent(index){
         <tr>
             <td id="indexNumber">${index+1}</td>
             <td id="siteName">${websiteList[index].name}</td>
-            <td><a   href="${websiteList[index].url}" target="_blank" class="visit btn btn-success px-2"><i class="fa fa-eye"></i> Visit</a></td>
+            <td><button type="button" class="visit btn btn-success px-2" onclick="visitSite(${index})"><i class="fa fa-eye"></i> Visit</button></td>
             <td id="deleteSite"><button id="deleteBtn"  class="delete btn btn-danger px-2" onclick="deleteWebsite(${index})"><i class="fa fa-trash-can"></i> Delete</button></td>
         </tr>
     `
@@ -98,10 +98,15 @@ function completeURL(url) {
     if (url.startsWith("http://") || url.startsWith("https://")) {
         return url;
     } else {
-        return "https://" + url;
+        return "https://" + url.replace(/^www\./, "");
     }
+}
+
+function visitSite(index){
+    var url=websiteList[index].url
+    window.open(url,"_blank")
 }
 
 //*Regex
 var nameRegex = /^[A-Za-z]{3,}$/;
-var websiteRegex = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]{3,}\.(com|net|org|dev)(\/\S*)?$/;
+var websiteRegex = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/\S*)?$/;
