@@ -46,6 +46,6 @@ table{
 }
 @media screen and (max-width:500px) {
     h2{
-        font-size: 12px;
+        font-size: 20px;
     }
 }
