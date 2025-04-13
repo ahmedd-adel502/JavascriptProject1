@@ -108,5 +108,5 @@ function visitSite(index){
 }
 
 //*Regex
-var nameRegex = /^[A-Za-z]{3,}$/;
+var nameRegex = /^([A-Za-z]{3,})(\s+[A-Za-z0-9_]{2,})*$/;
 var websiteRegex = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/\S*)?$/;
